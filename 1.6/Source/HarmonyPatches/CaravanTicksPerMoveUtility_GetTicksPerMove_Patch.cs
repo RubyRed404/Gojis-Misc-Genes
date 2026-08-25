@@ -12,6 +12,7 @@ namespace GojisMiscGenes
     {
         public static void Postfix(Caravan caravan, ref int __result)
         {
+            if (caravan is null) return;
             var destination = caravan.pather.Destination;
             if (destination.Valid is false) return;
 
