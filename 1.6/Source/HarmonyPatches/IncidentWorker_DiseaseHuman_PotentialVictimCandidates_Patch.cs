@@ -1,8 +1,8 @@
+using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
 using RimWorld;
 using Verse;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace GojisMiscGenes
 {
@@ -11,6 +11,11 @@ namespace GojisMiscGenes
     {
         public static void Postfix(IncidentWorker_DiseaseHuman __instance, ref IEnumerable<Pawn> __result)
         {
+            if (ModsConfig.RoyaltyActive && (__instance.def == DefsOf.Disease_BloodRot || __instance.def == DefsOf.Disease_Abasia))
+            {
+                __result = __result.Where(p => p.HasActiveGene(DefsOf.Goji_ExoticDiseaseProne));
+                return;
+            }
             if (__instance.def != DefsOf.Disease_FibrousMechanites && __instance.def != DefsOf.Disease_SensoryMechanites)
             {
                 return;

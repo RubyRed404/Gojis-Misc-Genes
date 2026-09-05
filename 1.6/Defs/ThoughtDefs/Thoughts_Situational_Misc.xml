@@ -23,4 +23,17 @@
         </stages>
     </ThoughtDef>
 
+    <ThoughtDef>
+        <defName>Goji_SweetScent</defName>
+        <thoughtClass>Thought_SituationalSocial</thoughtClass>
+        <workerClass>GojisMiscGenes.ThoughtWorker_SweetScent</workerClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>sweet scent</label>
+                <baseOpinionOffset>5</baseOpinionOffset>
+            </li>
+        </stages>
+    </ThoughtDef>
+
 </Defs>

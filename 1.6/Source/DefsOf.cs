@@ -45,6 +45,18 @@ namespace GojisMiscGenes
         public static MeditationFocusDef Natural;
         public static GeneDef Goji_NatureRhythm;
         public static GeneDef Goji_PathogenHost;
+        public static GeneDef Goji_PlaceboEffect;
+        public static GeneDef Goji_PainFortitude;
+        public static GeneDef Goji_PassiveAggressive;
+        [MayRequireRoyalty]
+        public static GeneDef Goji_ExoticDiseaseProne;
+        [MayRequireAnomaly]
+        public static GeneDef Goji_JinxedBloodline;
+        public static GeneDef Goji_ImposingPsyforce;
+        [MayRequireRoyalty]
+        public static GeneDef Goji_FocusLoop;
+        public static GeneDef Goji_PeaceRest;
+        public static GeneDef Goji_Pollinator;
         public static HediffDef FibrousMechanites;
         public static HediffDef SensoryMechanites;
         public static HediffDef GutWorms;
@@ -56,7 +68,20 @@ namespace GojisMiscGenes
         [MayRequire("vanillaracesexpanded.phytokin")]
         public static ThoughtDef VRE_GreenThumbHappy;
         public static GeneDef Stagz_KeenReflexes;
-
+        public static GeneDef Goji_DrugReceptive_Psychite;
+        public static GeneDef Goji_DrugReceptive_GoJuice;
+        public static GeneDef Goji_DrugReceptive_WakeUp;
+        [MayRequireRoyalty]
+        public static IncidentDef Disease_Abasia;
+        [MayRequireRoyalty]
+        public static IncidentDef Disease_BloodRot;
+        public static HediffDef GoJuiceHigh;
+        public static HediffDef WakeUpHigh;
+        public static HediffDef PsychiteTeaHigh;
+        public static HediffDef YayoHigh;
+        public static HediffDef FlakeHigh;
+        [MayRequireAnomaly]
+        public static MutantDef Ghoul;
         static DefsOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(DefsOf));
