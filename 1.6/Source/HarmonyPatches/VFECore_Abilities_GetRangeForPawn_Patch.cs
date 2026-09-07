@@ -25,7 +25,7 @@ namespace GojisMiscGenes
             bool hasPsycastExtension = false;
             foreach (var ext in ability.def.modExtensions)
             {
-                if (ext?.GetType()?.Name == "AbilityExtension_Psycast")
+                if (ext?.GetType().Name == "AbilityExtension_Psycast")
                 {
                     hasPsycastExtension = true;
                     break;
