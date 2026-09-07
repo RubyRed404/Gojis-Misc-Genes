@@ -23,15 +23,12 @@ namespace GojisMiscGenes
             var ability = __instance as VFECore.Abilities.Ability;
             var pawn = ability.pawn;
             bool hasPsycastExtension = false;
-            if (ability.def.modExtensions != null)
+            foreach (var ext in ability.def.modExtensions)
             {
-                foreach (var ext in ability.def.modExtensions)
+                if (ext?.GetType()?.Name == "AbilityExtension_Psycast")
                 {
-                    if (ext?.GetType()?.Name == "AbilityExtension_Psycast")
-                    {
-                        hasPsycastExtension = true;
-                        break;
-                    }
+                    hasPsycastExtension = true;
+                    break;
                 }
             }
 
