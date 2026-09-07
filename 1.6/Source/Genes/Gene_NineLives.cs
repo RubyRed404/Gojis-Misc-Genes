@@ -14,7 +14,7 @@ namespace GojisMiscGenes
                 var genes = pawn.genes.GenesListForReading;
                 foreach (var gene in genes)
                 {
-                    if (gene != this && gene.def.exclusionTags != null && gene.def.exclusionTags.Contains("Tail") && gene.Active)
+                    if (gene != this && gene.def.exclusionTags?.Contains("Tail") is true && gene.Active)
                     {
                         return true;
                     }
@@ -29,7 +29,7 @@ namespace GojisMiscGenes
             if (ModsConfig.AnomalyActive && pawn.IsHashIntervalTick(250) && Active is false)
             {
                 var deathRefusal = pawn.health.hediffSet.GetFirstHediff<Hediff_DeathRefusal>();
-                if (deathRefusal != null && deathRefusal.UsesLeft > 0)
+                if (deathRefusal?.UsesLeft > 0)
                 {
                     deathRefusal.SetUseAmountDirect(0);
                 }
