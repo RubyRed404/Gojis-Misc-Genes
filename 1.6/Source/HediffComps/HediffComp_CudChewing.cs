@@ -43,7 +43,7 @@ namespace GojisMiscGenes
                     var chemicalNeed = Pawn.needs.TryGetNeed<Need_Chemical_Any>();
                     if (chemicalNeed != null) chemicalNeed.CurLevel += Need_Chemical_Any.GainForSocialDrugIngestion;
                 }
-                if (ingestedDef?.ingestible != null && ingestedDef.ingestible.joy > 0f && ingestedDef.ingestible.joyKind != null)
+                if (ingestedDef is {ingestible: {joy: > 0f, joyKind: != null} })
                 {
                     Pawn.needs.joy.GainJoy(ingestedDef.ingestible.joy * 0.5f, ingestedDef.ingestible.joyKind);
                 }
