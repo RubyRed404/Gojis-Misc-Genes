@@ -27,7 +27,7 @@ namespace GojisMiscGenes
             {
                 foreach (var ext in ability.def.modExtensions)
                 {
-                    if (ext != null && ext.GetType().Name == "AbilityExtension_Psycast")
+                    if (ext?.GetType()?.Name == "AbilityExtension_Psycast")
                     {
                         hasPsycastExtension = true;
                         break;
@@ -35,7 +35,7 @@ namespace GojisMiscGenes
                 }
             }
 
-            if (hasPsycastExtension && pawn.HasActiveGene(DefsOf.Goji_Clairvoyance) && hasPsycastExtension)
+            if (hasPsycastExtension && pawn.HasActiveGene(DefsOf.Goji_Clairvoyance))
             {
                 var psySensitivity = pawn.GetStatValue(StatDefOf.PsychicSensitivity);
                 var bonusRange = (int)Math.Floor(psySensitivity - 1f);
