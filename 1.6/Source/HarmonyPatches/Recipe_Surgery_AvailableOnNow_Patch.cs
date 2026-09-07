@@ -12,7 +12,7 @@ namespace GojisMiscGenes
         public static bool Prefix(Recipe_Surgery __instance, Thing thing, ref bool __result)
         {
             var prereqs = __instance.recipe.mutantPrerequisite;
-            if (thing is Pawn pawn && pawn.HasActiveGene(DefsOf.Goji_PainFortitude) && pawn.IsMutant is false && prereqs != null && prereqs.Contains(DefsOf.Ghoul))
+            if (thing is Pawn pawn && pawn.HasActiveGene(DefsOf.Goji_PainFortitude) && pawn.IsMutant is false && prereqs?.Contains(DefsOf.Ghoul) is true)
             {
                 if (__instance.recipe.genderPrerequisite.HasValue && pawn.gender != __instance.recipe.genderPrerequisite.Value
                     || __instance.recipe.developmentalStageFilter.HasValue && !__instance.recipe.developmentalStageFilter.Value.Has(pawn.DevelopmentalStage)
