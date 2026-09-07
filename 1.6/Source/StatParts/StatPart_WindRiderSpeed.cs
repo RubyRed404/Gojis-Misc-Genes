@@ -38,7 +38,7 @@ namespace GojisMiscGenes
         private bool ActiveFor(StatRequest req, out Pawn pawn)
         {
             pawn = req.Thing as Pawn;
-            return pawn != null && pawn.Map != null && pawn.HasActiveGene(DefsOf.Goji_WindRider);
+            return pawn?.Map != null && pawn.HasActiveGene(DefsOf.Goji_WindRider);
         }
     }
 }
