@@ -12,7 +12,7 @@ namespace GojisMiscGenes
         public static bool HasActiveGene(this Pawn pawn, GeneDef geneDef, out Gene gene)
         {
             gene = pawn?.genes?.GetGene(geneDef);
-            return gene != null && gene.Active;
+            return gene?.Active ?? false;
         }
     }
 }
