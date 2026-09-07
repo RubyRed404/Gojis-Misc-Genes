@@ -45,7 +45,7 @@ namespace GojisMiscGenes
             var applyZeroCost = settings.zeroCostArchiteGenes;
             foreach (var geneDef in DefDatabase<GeneDef>.AllDefs)
             {
-                if (geneDef.biostatArc > 0 && (geneDef.modContentPack == null || !geneDef.modContentPack.IsOfficialMod))
+                if (geneDef.biostatArc > 0 && (geneDef.modContentPack?.IsOfficialMod is not true))
                 {
                     if (applyZeroCost)
                     {
