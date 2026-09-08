@@ -12,7 +12,7 @@ namespace GojisMiscGenes
 
         public static void Postfix(IncidentDef diseaseInc, ref float __result)
         {
-            if ((diseaseInc == DefsOf.Disease_BloodRot || diseaseInc == DefsOf.Disease_Abasia) && PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_FreeColonistsAndPrisoners.Any(p => p.HasActiveGene(DefsOf.Goji_ExoticDiseaseProne)))
+            if ((diseaseInc is DefsOf.Disease_BloodRot or DefsOf.Disease_Abasia) && PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_FreeColonistsAndPrisoners.Any(p => p.HasActiveGene(DefsOf.Goji_ExoticDiseaseProne)))
             {
                 __result = 1f;
             }
