@@ -9,11 +9,11 @@ namespace GojisMiscGenes
     {
         public static void Postfix(Gene gene, Pawn_GeneTracker __instance)
         {
-            if (gene.def.exclusionTags == null || !gene.def.exclusionTags.Contains("Tail")) return;
+            if (gene.def.exclusionTags?.Contains("Tail") is not true) return;
             var nineLives = __instance.GetGene(DefsOf.Goji_NineLives);
-            if (nineLives == null || nineLives.Active) return;
+            if (nineLives?.Active is not false) return;
             var deathRefusal = __instance.pawn.health.hediffSet.GetFirstHediff<Hediff_DeathRefusal>();
-            if (deathRefusal != null && deathRefusal.UsesLeft > 0)
+            if (deathRefusal?.UsesLeft > 0)
             {
                 deathRefusal.SetUseAmountDirect(0);
             }
