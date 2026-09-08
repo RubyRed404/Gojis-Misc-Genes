@@ -13,7 +13,7 @@ namespace GojisMiscGenes
 
         private static IEnumerable<StatDrawEntry> Postfix(IEnumerable<StatDrawEntry> __result, Pawn __instance)
         {
-            if (__instance != null && __instance.RaceProps.Humanlike && __instance.genes.HasActiveGene(DefsOf.Stagz_KeenReflexes))
+            if (__instance?.RaceProps.Humanlike is true && __instance.genes.HasActiveGene(DefsOf.Stagz_KeenReflexes))
             {
                 var keenReflexesStatDrawEntry = new StatDrawEntry(StatCategoryDefOf.PawnCombat, "Goji_KeenReflexes".Translate(), "Goji_KeenReflexes_Value".Translate(), "Goji_KeenReflexes_Description".Translate(), 410000);
                 return __result.Concat(keenReflexesStatDrawEntry);
