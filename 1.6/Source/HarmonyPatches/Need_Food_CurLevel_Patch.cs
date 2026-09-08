@@ -13,7 +13,7 @@ namespace GojisMiscGenes
             if (__instance is Need_Food needFood)
             {
                 Pawn pawn = needFood.pawn;
-                if (pawn != null && pawn.HasActiveGene(DefsOf.Goji_CheekPouch))
+                if (pawn?.HasActiveGene(DefsOf.Goji_CheekPouch) is true)
                 {
                     float maxLevel = needFood.MaxLevel;
                     float cheekPouchLimit = maxLevel * 2f;
