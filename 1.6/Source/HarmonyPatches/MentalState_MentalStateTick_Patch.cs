@@ -18,7 +18,7 @@ namespace GojisMiscGenes
                 if (__instance.pawn.IsHashIntervalTick(Interval, delta))
                 {
                     __instance.age += Interval;
-                    if (__instance.age >= __instance.def.maxTicksBeforeRecovery || __instance.forceRecoverAfterTicks != -1 && __instance.age >= __instance.forceRecoverAfterTicks) __instance.RecoverFromState();
+                    if (__instance is {age: >= __instance.def.maxTicksBeforeRecovery} or {forceRecoverAfterTicks: != -1, age: >= __instance.forceRecoverAfterTicks}) __instance.RecoverFromState();
                 }
                 return false;
             }
