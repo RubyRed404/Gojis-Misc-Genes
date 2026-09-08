@@ -23,7 +23,7 @@ namespace GojisMiscGenes
                 __result = false;
                 return false;
             }
-            if ((__instance.def == DefsOf.PsychiteTeaHigh || __instance.def == DefsOf.YayoHigh || __instance.def == DefsOf.FlakeHigh) && pawn.HasActiveGene(DefsOf.Goji_DrugReceptive_Psychite))
+            if ((__instance.def is DefsOf.PsychiteTeaHigh or DefsOf.YayoHigh or DefsOf.FlakeHigh) && pawn.HasActiveGene(DefsOf.Goji_DrugReceptive_Psychite))
             {
                 __result = false;
                 return false;
