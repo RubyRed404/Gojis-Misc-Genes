@@ -9,7 +9,7 @@ namespace GojisMiscGenes
     {
         public static void Postfix(FloatMenuContext context, ref FloatMenuOption __result)
         {
-            if (__result != null && context.FirstSelectedPawn.HasActiveGene(DefsOf.Goji_PeaceRest) && __result.Label == "StartDeathrest".Translate())
+            if (context.FirstSelectedPawn.HasActiveGene(DefsOf.Goji_PeaceRest) && __result?.Label == "StartDeathrest".Translate())
             {
                 __result.Label = "Goji_StartPeaceRest".Translate();
             }
