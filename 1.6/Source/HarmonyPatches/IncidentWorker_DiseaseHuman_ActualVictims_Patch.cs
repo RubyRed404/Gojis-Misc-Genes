@@ -11,7 +11,7 @@ namespace GojisMiscGenes
     {
         public static void Postfix(ref IEnumerable<Pawn> __result)
         {
-            if (__result != null && __result.Count() > 1)
+            if (__result?.Count() > 1)
             {
                 __result = __result.Distinct().ToList();
             }
