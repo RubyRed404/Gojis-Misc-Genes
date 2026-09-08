@@ -8,7 +8,7 @@ namespace GojisMiscGenes
     {
         public static void Prefix(HediffComp_TendDuration __instance, ref float quality, ref float maxQuality)
         {
-            if ((__instance.parent.def == DefsOf.GutWorms || __instance.parent.def == DefsOf.MuscleParasites) && __instance.Pawn.HasActiveGene(DefsOf.Goji_PathogenHost))
+            if ((__instance.parent.def is DefsOf.GutWorms or DefsOf.MuscleParasites) && __instance.Pawn.HasActiveGene(DefsOf.Goji_PathogenHost))
             {
                 quality = 0f;
                 maxQuality = 0f;
