@@ -11,12 +11,12 @@ namespace GojisMiscGenes
     {
         public static void Postfix(IncidentWorker_DiseaseHuman __instance, ref IEnumerable<Pawn> __result)
         {
-            if (ModsConfig.RoyaltyActive && (__instance.def == DefsOf.Disease_BloodRot || __instance.def == DefsOf.Disease_Abasia))
+            if (ModsConfig.RoyaltyActive && (__instance.def is DefsOf.Disease_BloodRot or DefsOf.Disease_Abasia))
             {
                 __result = __result.Where(p => p.HasActiveGene(DefsOf.Goji_ExoticDiseaseProne));
                 return;
             }
-            if (__instance.def != DefsOf.Disease_FibrousMechanites && __instance.def != DefsOf.Disease_SensoryMechanites)
+            if (__instance.def is not (DefsOf.Disease_FibrousMechanites and DefsOf.Disease_SensoryMechanites))
             {
                 return;
             }
