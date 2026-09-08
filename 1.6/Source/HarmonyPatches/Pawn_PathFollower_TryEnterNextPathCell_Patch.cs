@@ -23,16 +23,10 @@ namespace GojisMiscGenes
 
         private static void TryPollinate(Plant plant)
         {
-            if (plant.def.plant.IsTree || plant.LifeStage != PlantLifeStage.Growing || plant.Blighted)
-            {
-                return;
-            }
+            if (plant.def.plant.IsTree || plant.LifeStage != PlantLifeStage.Growing || plant.Blighted) return;
             var currentTick = Find.TickManager.TicksGame;
             var lastTick = plant.GetLastPollinatedTick();
-            if (lastTick > 0 && currentTick - lastTick < GenDate.TicksPerDay)
-            {
-                return;
-            }
+            if (lastTick > 0 && currentTick - lastTick < GenDate.TicksPerDay) return;
             plant.SetLastPollinatedTick(currentTick);
             plant.Growth += GrowthIncrement;
             FleckMaker.ThrowDustPuff(plant.Position.ToVector3Shifted(), plant.Map, DustScale);
