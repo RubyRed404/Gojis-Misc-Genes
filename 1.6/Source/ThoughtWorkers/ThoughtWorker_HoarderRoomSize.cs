@@ -8,12 +8,13 @@ namespace GojisMiscGenes
         public override ThoughtState CurrentStateInternal(Pawn p)
         {
             if (!p.HasActiveGene(DefsOf.Goji_Hoarder)) return ThoughtState.Inactive;
-            var curCategory = p.needs.roomsize.CurCategory;
-            if (curCategory == RoomSizeCategory.VeryCramped) return ThoughtState.ActiveAtStage(0);
-            if (curCategory == RoomSizeCategory.Cramped) return ThoughtState.ActiveAtStage(1);
-            if (curCategory == RoomSizeCategory.Normal) return ThoughtState.Inactive;
-            if (curCategory == RoomSizeCategory.Spacious) return ThoughtState.ActiveAtStage(2);
-            return ThoughtState.Inactive;
+            return p.needs.roomsize.CurCategory switch {
+                RoomSizeCategory.VeryCramped => ThoughtState.ActiveAtStage(0),
+                RoomSizeCategory.Cramped => ThoughtState.ActiveAtStage(1),
+                RoomSizeCategory.Normal => ThoughtState.Inactive, // this line could be removed.
+                RoomSizeCategory.Spacious => ThoughtState.ActiveAtStage(2),
+                _ => ThoughtState.Inactive,
+            }
         }
     }
 }
