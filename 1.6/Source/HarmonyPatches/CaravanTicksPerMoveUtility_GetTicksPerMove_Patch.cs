@@ -30,7 +30,8 @@ namespace GojisMiscGenes
             if (hasRouteMemory)
             {
                 var mapParent = Find.WorldObjects.WorldObjectAt<MapParent>(destination);
-                if (mapParent != null && mapParent.HasMap || mapParent is Settlement settlement && settlement.EverVisited)
+                if (mapParent?.HasMap is true || mapParent is Settlement settlement && settlement.EverVisited)
+                // if (mapParent is {HasMap: true, EverVisited: true}) // needs testing. unsure if it would work.
                 {
                     __result = Mathf.RoundToInt(__result / 1.33f);
                 }
