@@ -16,7 +16,7 @@ namespace GojisMiscGenes
         public ImposingPsyforceScope(Pawn caster)
         {
             previous = ImposingPsyforceContext.CurrentCaster;
-            if (caster != null && caster.HasActiveGene(DefsOf.Goji_ImposingPsyforce))
+            if (caster?.HasActiveGene(DefsOf.Goji_ImposingPsyforce) is true)
             {
                 ImposingPsyforceContext.CurrentCaster = caster;
             }
