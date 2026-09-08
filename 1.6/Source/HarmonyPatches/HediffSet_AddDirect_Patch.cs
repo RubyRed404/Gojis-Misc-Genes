@@ -9,20 +9,18 @@ namespace GojisMiscGenes
     {
         public static bool Prefix(HediffSet __instance, ref Hediff hediff)
         {
-            if (hediff.def == HediffDefOf.Hypothermia && __instance.pawn.HasActiveGene(DefsOf.Goji_Hibernation))
+            if (hediff.def != HediffDefOf.Hypothermia || !__instance.pawn.HasActiveGene(DefsOf.Goji_Hibernation)) return true;
+            var severity = hediff.Severity;
+            Hediff firstHediffOfDef = __instance.pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.HypothermicSlowdown);
+            if (firstHediffOfDef != null)
             {
-                var severity = hediff.Severity;
-                Hediff firstHediffOfDef = __instance.pawn.health.hediffSet.GetFirstHediffOfDef(DefsOf.HypothermicSlowdown);
-                if (firstHediffOfDef != null)
-                {
-                    firstHediffOfDef.Severity += severity;
-                    return false;
-                }
-                else
-                {
-                    hediff = HediffMaker.MakeHediff(DefsOf.HypothermicSlowdown, __instance.pawn, hediff.Part);
-                    hediff.Severity = severity;
-                }
+                firstHediffOfDef.Severity += severity;
+                return false;
+            }
+            else
+            {
+                hediff = HediffMaker.MakeHediff(DefsOf.HypothermicSlowdown, __instance.pawn, hediff.Part);
+                hediff.Severity = severity;
             }
             return true;
         }
