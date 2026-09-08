@@ -8,7 +8,7 @@ namespace GojisMiscGenes
     {
         public static void Postfix(HediffComp_Disappears __instance, ref bool __result)
         {
-            if (__result && (__instance.parent.def == DefsOf.FibrousMechanites || __instance.parent.def == DefsOf.SensoryMechanites) && __instance.Pawn.HasActiveGene(DefsOf.Goji_PathogenHost))
+            if (__result && (__instance.parent.def is DefsOf.FibrousMechanites or DefsOf.SensoryMechanites) && __instance.Pawn.HasActiveGene(DefsOf.Goji_PathogenHost))
             {
                 __result = false;
             }
