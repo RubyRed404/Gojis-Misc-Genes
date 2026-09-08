@@ -12,7 +12,7 @@ namespace GojisMiscGenes
         {
             if (__result > 0f && part != null && pawn.HasActiveGene(DefsOf.Goji_DenseScar))
             {
-                if (damageDef.armorCategory == DamageArmorCategoryDefOf.Sharp || damageDef.armorCategory == DefsOf.Blunt)
+                if (damageDef.armorCategory is DamageArmorCategoryDefOf.Sharp or DefsOf.Blunt)
                 {
                     var extraArmor = 0f;
                     foreach (var hediff in pawn.health.hediffSet.hediffs)
